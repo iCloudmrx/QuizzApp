@@ -43,6 +43,9 @@ def ready_to_test(request, test_id):
 def test(request, test_id):
     test = get_object_or_404(Test, id=test_id)
     questions = Question.objects.filter(test=test)
+    if request.method == 'POST':
+        for question in questions:
+            given_answer = request.POST[str(question.id)]
     return render(request, 'test.html', {
         'test': test,
         'questions': questions
