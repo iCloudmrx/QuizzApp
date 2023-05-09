@@ -1,3 +1,16 @@
-{% extends 'base.html' %} {% load crispy_forms_tags %} {% block title %}Login{% endblock title %} {% block content %}
-<div class="container"></div>
+{% extends 'base.html' %} {% block title %}Login{% endblock title %} {% block content %}
+<div class="container">
+    <div class="content mt-3">
+        <h2>Lastest Tests for you</h2>
+        <ol>
+            {% for test in tests %}
+            <li>
+                <small>
+                    <a href="{% url 'ready_to_test' test.id %}">Try it</a>
+                </small>
+            </li>
+            {% endfor %}
+        </ol>
+    </div>
+</div>
 {% endblock content %}
