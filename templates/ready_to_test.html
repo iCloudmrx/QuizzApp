@@ -9,7 +9,9 @@
         Make sure this whole test time is inside of <strong>{{ test.start_date}}</strong> and
         <strong>{{ test.end_date}}</strong>
     </p>
+    {% comment %}
     <p>Author: <a href="{% url 'profile' test.author.id%}">@{{ test.author.username }}</a></p>
+    {% endcomment %}
     <a href="{% url 'test' test.id%}" class="btn btn-primary">Start test</a>
     <a href="{% url 'home' %}" class="btn btn-secondary">Back</a>
 </div>

@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Test, Question, Category
+from .models import Test, Question, Category, CheckQuestion, CheckTest
 
 # Register your models here.
 
@@ -28,3 +28,6 @@ class QuestionAdmin(admin.ModelAdmin):
     list_display = ['question', 'true_answer']
     list_filter = ['question', 'true_answer']
     search_fields = ['question']
+
+
+admin.site.register([CheckTest, CheckQuestion])

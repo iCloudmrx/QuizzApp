@@ -88,6 +88,16 @@
                             {% if request.user.is_authenticated %}
                             <li class="nac-item">
                                 <a href="#" class="nav-link">
+                                    Profile
+                                </a>
+                            </li>
+                            <li class="nac-item">
+                                <a href="{% url 'new_test' %}" class="nav-link">
+                                   Add test
+                                </a>
+                            </li>
+                            <li class="nac-item">
+                                <a href="#" class="nav-link">
                                     <button type="button" class="btn btn-info">{{ request.user.username }}</button>
                                 </a>
                             </li>

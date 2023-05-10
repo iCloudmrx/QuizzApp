@@ -1,0 +1,37 @@
+{% extends 'base.html' %} {% block title %}Check Answer{% endblock title %} {% block content %}
+<div class="content mt-5">
+    <center>
+        {% if Check_test.user_passed %}
+        <h1>You have successfully passed the test</h1>
+        {% else %}
+        <h1>You have failed the test</h1>
+        {% comment %}
+        <h1>You have to solve {{check-test.test.pass_percentage}} of the test all least</h1>
+        {% endcomment %} {% endif %}
+
+        <h2 class="mb-4">You finded {{ check-test.percentage }} of all questions</h2>
+    </center>
+    <div class="card" p-3>
+        {% for question in check-test.checkquestion_set.all %}
+        <h5>{{forloop.counter}}. {{question.question}}</h5>
+        {% if question.is_true %}
+        <div class="answer p-2">
+            <p>Note:{{question.given_answer}} was marked</p>
+            <p>A: {{question.question.a}}</p>
+            <p>B: {{question.question.b}}</p>
+            <p>C: {{question.question.c}}</p>
+            <p>D: {{question.question.d}}</p>
+        </div>
+        {%else%}
+        <div class="answer p-2" style="background-color: rgba(255, 129, 129, 0.39)">
+            <p>Note:{{question.given_answer}} was marked</p>
+            <p>A: {{question.question.a}}</p>
+            <p>B: {{question.question.b}}</p>
+            <p>C: {{question.question.c}}</p>
+            <p>D: {{question.question.d}}</p>
+        </div>
+        {% endif %} {% endfor %}
+        <a href="{% url 'home' %}" class="btn btn-primary mt-2">Back home</a>
+    </div>
+</div>
+{% endblock content %}

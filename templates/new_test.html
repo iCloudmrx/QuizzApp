@@ -1,0 +1,16 @@
+{% extends 'base.html' %} {% block title %} New Test {% endblock title %} {% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col"></div>
+        <div class="col-8 mt-5">
+            <h2>New question for {{test}}</h2>
+            <form method="post">
+                {% csrf_token %}
+                {{form.as_p}}
+                <button type="submit" class="btn btn-primary">Submit</button>
+                <a href="{% url 'home' %}" class="btn btn-primary">Back Home</a>
+        </div>
+        <div class="col"></div>
+    </div>
+</div>
+{% endblock content %}
