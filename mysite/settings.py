@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-ponsj^s25!1bn^c#(vzd%mo1!k+p2@(ys9*$t9r06xe_-lrnm+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['railway.app', '127.0.0.1']
 
 
 # Application definition
@@ -142,4 +142,4 @@ LOGIN_REDIRECT_URL = "home"
 
 LOGOUT_REDIRECT_URL = "home"
 
-CSRF_TRUSTED_ORIGINS = ['https://' + os.environ['quizzapp.up.railway.app']]
+CSRF_TRUSTED_ORIGINS = ['https://quizzapp.up.railway.app']
