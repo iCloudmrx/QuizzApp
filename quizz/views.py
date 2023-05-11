@@ -34,6 +34,16 @@ def signup(request):
         'form': form
     })
 
+# profile
+
+
+@login_required(login_url='login')
+def profile(request, user_id):
+    user = get_object_or_404(User, id=user_id)
+    return render(request, 'profile.html', {
+        'user': user
+    })
+
 
 @login_required(login_url='login')
 def ready_to_test(request, test_id):

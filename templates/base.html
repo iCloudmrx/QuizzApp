@@ -87,7 +87,7 @@
                             </li>
                             {% if request.user.is_authenticated %}
                             <li class="nac-item">
-                                <a href="#" class="nav-link">
+                                <a href="{% url 'profile' request.user.id %}" class="nav-link">
                                     Profile
                                 </a>
                             </li>

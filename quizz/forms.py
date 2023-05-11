@@ -2,11 +2,10 @@ from django import forms
 from .models import Question, Test
 
 
-class TestForm(forms.Form):
+class TestForm(forms.ModelForm):
     class Meta:
         model = Test
-        fields = ['title', 'max_attemps',
-                  'pass_percentage', 'start_date', 'end_date']
+        fields = '__all__'
 
     def save(self, request, comment=True):
         test = self.instance
@@ -15,7 +14,7 @@ class TestForm(forms.Form):
         return test.id
 
 
-class QuestionForm(forms.Form):
+class QuestionForm(forms.ModelForm):
     class Meta:
         model = Question
         fields = '__all__'
