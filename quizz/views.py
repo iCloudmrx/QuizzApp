@@ -20,7 +20,6 @@ def home(request):
 
 
 # signup
-
 def signup(request):
     if request.method == 'POST':
         form = UserCreationForm(request.POST)
