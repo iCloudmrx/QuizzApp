@@ -5,7 +5,7 @@
         {% csrf_token %}
         <div class="form-group">
             {% for question in questions %}
-            <h5>{{forloop.counter }}> {{ question.question }}</h5>
+            <h5>{{forloop.counter }}: {{ question.question }}</h5>
             <div class="form-check form-check-inline">
                 <input
                     class="form-check-input"
@@ -13,7 +13,8 @@
                     required
                     name="{{question.id}}"
                     id="{{question.id}}-a"
-                    value="a"
+                    value="
+                    a"
                 />
                 <label for="{{question.id}}-a">{{ question.a }}</label>
                 <br />

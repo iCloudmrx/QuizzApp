@@ -82,11 +82,11 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'railway',
+        'NAME': 'quizzdb',
         'USER': 'postgres',
-        'PASSWORD': 'Q8SzrRwsaBMVJYXRk6xd',
-        'HOST': 'containers-us-west-151.railway.app',
-        'PORT': '7382',
+        'PASSWORD': '20010514',
+        'HOST': 'localhost',
+        'PORT': '5433',
     }
 }
 

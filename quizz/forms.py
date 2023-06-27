@@ -5,7 +5,7 @@ from .models import Question, Test
 class TestForm(forms.ModelForm):
     class Meta:
         model = Test
-        fields = '__all__'
+        fields = ('category', 'title', 'max_attemps', 'pass_percentage', 'start_date', 'end_date')
 
     def save(self, request, comment=True):
         test = self.instance

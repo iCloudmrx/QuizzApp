@@ -56,13 +56,14 @@ def ready_to_test(request, test_id):
 def test(request, test_id):
     test = get_object_or_404(Test, id=test_id)
     attemps = CheckTest.objects.filter(student=request.user, test=test).count()
-    if attemps < test.max_attemps and (timezone.now() >= test.start_date and timezone.now() <= test.end_date):
+    if attemps <= test.max_attemps and (timezone.now() >= test.start_date and timezone.now() <= test.end_date):
         questions = Question.objects.filter(test=test)
         if request.method == 'POST':
             check_test = CheckTest.objects.create(
                 student=request.user, test=test)
             for question in questions:
                 given_answer = request.POST[str(question.id)]
+                print(given_answer+'\n')
                 CheckQuestion.objects.create(
                     check_test=check_test,
                     question=question,
@@ -75,6 +76,7 @@ def test(request, test_id):
             'questions': questions
         })
     else:
+        print(attemps)
         return HttpResponse("Server Error")
 
 
